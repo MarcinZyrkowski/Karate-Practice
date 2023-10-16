@@ -1,0 +1,1 @@
+In this project Karate framework is used to test https://reqres.in/ 

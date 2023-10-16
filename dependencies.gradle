@@ -1,0 +1,11 @@
+ext {
+    junitBomVersion = '5.9.1'
+    karateVersion = '1.4.1.RC5'
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:${junitBomVersion}')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'com.intuit.karate:karate-core:${karateVersion}'
+    testImplementation 'com.intuit.karate:karate-junit5:${karateVersion}'
+}
