@@ -1,7 +1,8 @@
 Feature: Get list of users
 
   Background:
-    * url 'https://reqres.in/api/users?page=2'
+    * url baseURL
+    * path 'api/users?page=2'
 
 
   Scenario: Get list of users
