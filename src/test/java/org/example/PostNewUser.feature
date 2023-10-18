@@ -31,3 +31,11 @@ Feature: Create new user
     Then status 201
     And print response
     And match response == {"name": "Marcin", "job": "QA", "id":  "#string", "createdAt":  "#ignore"}
+
+  Scenario: Create new user and match it with external file
+    * def expectedResponse = read('file:src/test/resources/postResponse.json')
+    Given request { "name": "Marcin", "job": "QA" }
+    When method POST
+    Then status 201
+    And print response
+    And match response == expectedResponse
