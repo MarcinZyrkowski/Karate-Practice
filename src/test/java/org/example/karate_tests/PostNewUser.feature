@@ -39,3 +39,13 @@ Feature: Create new user
     Then status 201
     And print response
     And match response == expectedResponse
+
+  Scenario: Create new user and using java generated dto
+    * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
+    * def userJson = UserGenerator.generateUserDto()
+    Given request karate.toJson(userJson)
+    When method POST
+    Then status 201
+    And print response
+    And match $ == {"name": "Marcin", "job": "QA", "id":  "#string", "createdAt":  "#ignore"}
+    # $ could be used as response
