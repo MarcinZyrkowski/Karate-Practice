@@ -4,6 +4,7 @@ Feature: Get list of users
     * url baseURL
     * path 'api/users'
     * param page = 2
+    # query parameter is set using page
 
   Scenario: Get list of users
     When method GET

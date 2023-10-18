@@ -42,8 +42,8 @@ Feature: Create new user
 
   Scenario: Create new user and using java generated dto
     * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
-    * def userJson = UserGenerator.generateUserDto()
-    Given request karate.toJson(userJson)
+    * def userRequest = UserGenerator.generateUserDto()
+    Given request karate.toJson(userRequest)
     When method POST
     Then status 201
     And print response
