@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class UserResponse {
     private String name;
     private String job;
-    private String id;
-    private String createdAt;
+    @Builder.Default
+    private String id = "#string";
+    @Builder.Default
+    private String createdAt = "#ignore";
 }

@@ -53,3 +53,21 @@ Feature: Create new user
     And print response
     And match $ == karate.toJson(userResponse)
     # $ could be used as response
+
+  Scenario Outline: Create new users based on java template requests
+    * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
+    * def userRequest = UserGenerator.generateUserDto(name, job)
+
+    * def UserResponseGenerator = Java.type('org.example.data_provider.UserResponseGenerator')
+    * def userResponse = UserResponseGenerator.generateUserResponse(name, job)
+
+    Given request karate.toJson(userRequest)
+    When method POST
+    Then status 201
+    And print response
+    And match $ == karate.toJson(userResponse)
+
+    Examples:
+    | name | job |
+    | Tom  | Dev |
+    | Mark | PM  |

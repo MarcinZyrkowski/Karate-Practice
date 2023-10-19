@@ -13,4 +13,11 @@ public class UserResponseGenerator {
                 .build();
     }
 
+    public static UserResponse generateUserResponse(String name, String job) {
+        return UserResponse.builder()
+                .name(name)
+                .job(job)
+                .build();
+    }
+
 }
