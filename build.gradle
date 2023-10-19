@@ -17,6 +17,16 @@ java {
     }
 }
 
+// to run tests in TestRunner sourceSets have to be set
+sourceSets {
+    test {
+        resources {
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+    }
+}
+
 test {
     useJUnitPlatform()
 }
