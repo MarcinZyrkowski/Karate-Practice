@@ -11,6 +11,12 @@ repositories {
 
 apply from: 'dependencies.gradle'
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 test {
     useJUnitPlatform()
 }
