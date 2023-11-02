@@ -5,7 +5,7 @@ Feature: Create new user
     * path 'api/users'
 
     # we can also combine url and path using ``
-    # In JavaScript, the double backticks (``) are used to define a template literal.
+    # In JavaScript, the double backticks    (``) are used to define a template literal.
     # Template literals are a way to create strings that can span multiple lines and include expressions
     # or variables directly within the string using ${...} syntax.
     # example: `${baseURL}api/users`
@@ -79,3 +79,14 @@ Feature: Create new user
     And print response
     And match response == {"name": "Marcin", "job": "#regex QA .*", "id":  "#string", "createdAt":  "#ignore"}
     # to use regex exp we need to put #regex before
+
+  Scenario: Create new user using dynamic variable
+    * def person = 'Marcin'
+    Given request { "name": "#(person)", "job": "QA" }
+    When method POST
+    Then status 201
+    And print response
+    And match response == {"name": "Marcin", "job": "QA", "id":  "#string", "createdAt":  "#ignore"}
+
+
+  # TODO add test case with running test scenario with tags and read('@loadData')

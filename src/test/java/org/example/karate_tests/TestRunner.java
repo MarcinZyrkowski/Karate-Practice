@@ -9,7 +9,8 @@ public class TestRunner {
     Karate run() {
         return Karate.run(
                 "GetListOfUsers.feature",
-                "PostNewUser.feature")
+                "PostNewUser.feature",
+                "General.feature")
                 .relativeTo(getClass());
     }
 
