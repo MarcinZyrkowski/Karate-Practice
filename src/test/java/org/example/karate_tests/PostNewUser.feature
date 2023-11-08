@@ -3,6 +3,8 @@ Feature: Create new user
   Background:
     * url baseURL
     * path 'api/users'
+    * def userResponseGenerator = Java.type('org.example.data_provider.UserResponseGenerator')
+    * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
 
     # we can also combine url and path using ``
     # In JavaScript, the double backticks    (``) are used to define a template literal.
@@ -41,13 +43,18 @@ Feature: Create new user
     And match response == expectedResponse
 
   Scenario: Create new user and using java generated dto
-    * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
     * def userRequest = UserGenerator.generateUserDto()
 
-    * def UserResponseGenerator = Java.type('org.example.data_provider.UserResponseGenerator')
-    * def userResponse = UserResponseGenerator.generateUserResponse()
+    * def userResponse = userResponseGenerator.generateUserResponse()
 
-    Given request karate.toJson(userRequest)
+    * def req = karate.toJson(userRequest)
+    * print req
+
+    * def name = req.name
+    * print name
+    # how to use fields in json build using JAVA
+
+    Given request req
     When method POST
     Then status 201
     And print response
@@ -55,11 +62,9 @@ Feature: Create new user
     # $ could be used as response
 
   Scenario Outline: Create new users based on java template requests
-    * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
     * def userRequest = UserGenerator.generateUserDto(name, job)
 
-    * def UserResponseGenerator = Java.type('org.example.data_provider.UserResponseGenerator')
-    * def userResponse = UserResponseGenerator.generateUserResponse(name, job)
+    * def userResponse = userResponseGenerator.generateUserResponse(name, job)
 
     Given request karate.toJson(userRequest)
     When method POST
@@ -88,5 +93,22 @@ Feature: Create new user
     And print response
     And match response == {"name": "Marcin", "job": "QA", "id":  "#string", "createdAt":  "#ignore"}
 
+  Scenario Outline: Create new users with dynamic evaluation in scenario outline
+    * def T = 'Tom'
+    * print <name>
+    * def userRequest = UserGenerator.generateUserDto(<name>, job)
+    * def userResponse = userResponseGenerator.generateUserResponse(<name>, job)
 
-  # TODO add test case with running test scenario with tags and read('@loadData')
+    Given request karate.toJson(userRequest)
+    When method POST
+    Then status 201
+    And print response
+    And match $ == karate.toJson(userResponse)
+
+    Examples:
+      | name   | job |
+      | T+'X'  | Dev |
+      | 'Mark' | PM  |
+
+
+      # TODO add test case with running test scenario with tags and read('@loadData')
