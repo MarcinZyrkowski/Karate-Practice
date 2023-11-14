@@ -73,9 +73,9 @@ Feature: Create new user
     And match $ == karate.toJson(userResponse)
 
     Examples:
-    | name | job |
-    | Tom  | Dev |
-    | Mark | PM  |
+      | name | job |
+      | Tom  | Dev |
+      | Mark | PM  |
 
   Scenario: Create new user with regex assertion
     Given request { "name": "Marcin", "job": "QA with id 323264732" }
@@ -109,6 +109,16 @@ Feature: Create new user
       | name   | job |
       | T+'X'  | Dev |
       | 'Mark' | PM  |
+
+  Scenario Outline: Removing fields from json
+    * def req = karate.toJson(UserGenerator.generateUserDto())
+    * remove req.<missingField>
+    * print req
+
+    Examples:
+      | missingField |
+      | name         |
+      | job          |
 
 
       # TODO add test case with running test scenario with tags and read('@loadData')
