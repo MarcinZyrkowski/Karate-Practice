@@ -120,5 +120,14 @@ Feature: Create new user
       | name         |
       | job          |
 
+  Scenario: Create new user and serialize it to Json
+    * def userRequest = UserGenerator.generateUserDtoAsJson()
+
+    Given request userRequest
+    When method POST
+    Then status 201
+    And print response
+
+
 
       # TODO add test case with running test scenario with tags and read('@loadData')

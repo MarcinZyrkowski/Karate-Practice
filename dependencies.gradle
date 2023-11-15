@@ -2,6 +2,8 @@ ext {
     junitVersion = '5.8.0'
     karateVersion = '1.4.1'
     lombokVersion = '1.18.22'
+    jacksonVersion = '2.16.0-rc1'
+    slf4jVersion = '2.0.9'
 }
 
 dependencies {
@@ -11,4 +13,7 @@ dependencies {
     implementation "com.intuit.karate:karate-junit5:${karateVersion}"
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
 }
