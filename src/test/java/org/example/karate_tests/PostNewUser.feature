@@ -4,7 +4,7 @@ Feature: Create new user
     * url baseURL
     * path 'api/users'
     * def userResponseGenerator = Java.type('org.example.data_provider.UserResponseGenerator')
-    * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
+    * def userGenerator = Java.type('org.example.data_provider.UserGenerator')
 
     # we can also combine url and path using ``
     # In JavaScript, the double backticks    (``) are used to define a template literal.
@@ -43,7 +43,7 @@ Feature: Create new user
     And match response == expectedResponse
 
   Scenario: Create new user and using java generated dto
-    * def userRequest = UserGenerator.generateUserDto()
+    * def userRequest = userGenerator.generateUserDto()
 
     * def userResponse = userResponseGenerator.generateUserResponse()
 
@@ -62,7 +62,7 @@ Feature: Create new user
     # $ could be used as response
 
   Scenario Outline: Create new users based on java template requests
-    * def userRequest = UserGenerator.generateUserDto(name, job)
+    * def userRequest = userGenerator.generateUserDto(name, job)
 
     * def userResponse = userResponseGenerator.generateUserResponse(name, job)
 
@@ -96,7 +96,7 @@ Feature: Create new user
   Scenario Outline: Create new users with dynamic evaluation in scenario outline
     * def T = 'Tom'
     * print <name>
-    * def userRequest = UserGenerator.generateUserDto(<name>, job)
+    * def userRequest = userGenerator.generateUserDto(<name>, job)
     * def userResponse = userResponseGenerator.generateUserResponse(<name>, job)
 
     Given request karate.toJson(userRequest)
@@ -111,7 +111,7 @@ Feature: Create new user
       | 'Mark' | PM  |
 
   Scenario Outline: Removing fields from json
-    * def req = karate.toJson(UserGenerator.generateUserDto())
+    * def req = karate.toJson(userGenerator.generateUserDto())
     * remove req.<missingField>
     * print req
 
@@ -121,13 +121,11 @@ Feature: Create new user
       | job          |
 
   Scenario: Create new user and serialize it to Json
-    * def userRequest = UserGenerator.generateUserDtoAsJson()
+    * def userRequest = userGenerator.generateUserDtoAsJson()
 
     Given request userRequest
     When method POST
     Then status 201
     And print response
-
-
 
       # TODO add test case with running test scenario with tags and read('@loadData')
