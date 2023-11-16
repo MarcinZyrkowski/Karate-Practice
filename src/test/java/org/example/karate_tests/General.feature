@@ -9,7 +9,7 @@ Feature: General Karate feature tests
     Given def name = myOwnTable[1].name
     And match name == 'Selene'
 
-
+  @debug
   Scenario: Changing value in JSON
     * def json =
     """
@@ -28,5 +28,6 @@ Feature: General Karate feature tests
     And print json
     # 2 ways of modifying json
 
+  @smoke
   Scenario: Usage of external scenario
     When call read('Hooks.feature@hello')

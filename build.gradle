@@ -30,3 +30,15 @@ sourceSets {
 test {
     useJUnitPlatform()
 }
+
+
+task karate(type: JavaExec) {
+    mainClass = 'com.intuit.karate.cli.Main'
+    classpath = sourceSets.test.runtimeClasspath
+
+    if (project.hasProperty('tags')) {
+        args = ['src/test/java', '--tags', project.tags]
+    } else {
+        args = ['src/test/java']
+    }
+}
