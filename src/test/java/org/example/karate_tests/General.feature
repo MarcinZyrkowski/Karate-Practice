@@ -27,3 +27,6 @@ Feature: General Karate feature tests
     When set json.job.title = 'AQA'
     And print json
     # 2 ways of modifying json
+
+  Scenario: Usage of external scenario
+    When call read('Hooks.feature@hello')

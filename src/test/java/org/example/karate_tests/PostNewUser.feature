@@ -127,5 +127,3 @@ Feature: Create new user
     When method POST
     Then status 201
     And print response
-
-      # TODO add test case with running test scenario with tags and read('@loadData')
