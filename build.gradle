@@ -32,7 +32,7 @@ test {
 }
 
 
-task karate(type: JavaExec) {
+tasks.register('karate', JavaExec) {
     mainClass = 'com.intuit.karate.cli.Main'
     classpath = sourceSets.test.runtimeClasspath
 
@@ -41,4 +41,8 @@ task karate(type: JavaExec) {
     } else {
         args = ['src/test/java']
     }
+
+    // karate task will be executed even when tests fail
+    ignoreExitValue = true as JavaExecSpec
+
 }

@@ -1,5 +1,6 @@
 Feature: General Karate feature tests
 
+  @debug
   Scenario: Test Karate table
     * table myOwnTable
       | name     | sex |
