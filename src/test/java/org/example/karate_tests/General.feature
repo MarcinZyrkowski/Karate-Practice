@@ -47,7 +47,6 @@ Feature: General Karate feature tests
     # prints row by row
 
 
-  @debug
   Scenario: iterating through list, calling Java method, and calling karate @methods
     * def rawPeople = userGenerator.generateList()
     * def people = karate.toJson(rawPeople)
@@ -66,3 +65,21 @@ Feature: General Karate feature tests
   @ignore @hello
   Scenario: setup hook
     When print 'helloKarate'
+
+  Scenario: creating users in bulk request
+    * def rawPeople = userGenerator.generateList()
+    * def people = karate.toJson(rawPeople)
+    * def userRequest = 'kot'
+    * print people
+    * def fun =
+    """
+    function(user) {
+          karate.log(user)
+          karate.set('userRequest', karate.toJson(user))
+          userRequest = karate.toJson(user)
+          karate.call('Hooks.feature@createUser')
+    }
+    """
+
+
+    * karate.forEach(rawPeople, fun)
