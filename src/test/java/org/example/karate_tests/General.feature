@@ -1,6 +1,8 @@
 Feature: General Karate feature tests
 
-  @debug
+  Background:
+    * def userGenerator = Java.type('org.example.data_provider.UserGenerator')
+
   Scenario: Test Karate table
     * table myOwnTable
       | name     | sex |
@@ -10,7 +12,6 @@ Feature: General Karate feature tests
     Given def name = myOwnTable[1].name
     And match name == 'Selene'
 
-  @debug
   Scenario: Changing value in JSON
     * def json =
     """
@@ -32,3 +33,36 @@ Feature: General Karate feature tests
   @smoke
   Scenario: Usage of external scenario
     When call read('Hooks.feature@hello')
+
+  @ignore @print
+  Scenario: table hook
+    Given print name
+
+  Scenario: Test with table
+    * table data
+      | name   | job        |
+      | 'Tom'  | 'Java Dev' |
+      | 'Mark' | 'PM'       |
+    * call read('@print') data
+    # prints row by row
+
+
+  @debug
+  Scenario: iterating through list, calling Java method, and calling karate @methods
+    * def rawPeople = userGenerator.generateList()
+    * def people = karate.toJson(rawPeople)
+    * print people
+    * def fun =
+    """
+    function(user) {
+          karate.log(user);
+          userGenerator.hello();
+          karate.call('@hello')
+    }
+    """
+
+    * karate.forEach(rawPeople, fun)
+
+  @ignore @hello
+  Scenario: setup hook
+    When print 'helloKarate'

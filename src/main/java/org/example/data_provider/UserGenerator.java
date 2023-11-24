@@ -3,6 +3,8 @@ package org.example.data_provider;
 import org.example.dto.User;
 import org.example.utils.JsonConverter;
 
+import java.util.List;
+
 public class UserGenerator {
 
     public static User generateUserDto() {
@@ -15,6 +17,14 @@ public class UserGenerator {
 
     public static String generateUserDtoAsJson() {
         return JsonConverter.serializePojo(new User("Marcin", "QA"));
+    }
+
+    public static List<User> generateList() {
+        return List.of(new User("Marcin", "QA"), new User("Tomek", "PM"));
+    }
+
+    public static void hello() {
+        System.out.println("helloJava");
     }
 
 }
