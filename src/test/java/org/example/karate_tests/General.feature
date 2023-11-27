@@ -66,17 +66,25 @@ Feature: General Karate feature tests
   Scenario: setup hook
     When print 'helloKarate'
 
+  @debug
   Scenario: creating users in bulk request
     * def rawPeople = userGenerator.generateList()
     * def userRequest = 'kot'
+    * def data = ''
     * def fun =
     """
     function(user) {
-          karate.log(user)
           karate.set('userRequest', karate.toJson(user))
+          karate.set('data', userRequest)
+          karate.call('@printKarateData')
           karate.call('Hooks.feature@createUser')
     }
     """
 
 
     * karate.forEach(rawPeople, fun)
+
+
+  @ignore @printKarateData
+  Scenario: print
+    * print data
