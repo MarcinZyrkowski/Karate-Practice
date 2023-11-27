@@ -68,15 +68,12 @@ Feature: General Karate feature tests
 
   Scenario: creating users in bulk request
     * def rawPeople = userGenerator.generateList()
-    * def people = karate.toJson(rawPeople)
     * def userRequest = 'kot'
-    * print people
     * def fun =
     """
     function(user) {
           karate.log(user)
           karate.set('userRequest', karate.toJson(user))
-          userRequest = karate.toJson(user)
           karate.call('Hooks.feature@createUser')
     }
     """
