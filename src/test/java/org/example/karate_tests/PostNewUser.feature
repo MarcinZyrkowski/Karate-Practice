@@ -127,3 +127,15 @@ Feature: Create new user
     When method POST
     Then status 201
     And print response
+
+  Scenario: Parse Json string to karate JSON
+    * def conv = Java.type('org.example.utils.JsonConverter')
+    * def userRequest = userGenerator.generateUserDto()
+    * def req = conv.serializePojo(userRequest)
+    * print req
+
+    Given request JSON.parse(req)
+    When method POST
+    Then status 201
+    And print response
+    And match response == {"name": "Marcin", "job": "QA", "id":  "#string", "createdAt":  "#ignore"}

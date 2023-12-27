@@ -66,7 +66,6 @@ Feature: General Karate feature tests
   Scenario: setup hook
     When print 'helloKarate'
 
-  @debug
   Scenario: creating users in bulk request
     * def rawPeople = userGenerator.generateList()
     * def userRequest = 'kot'
@@ -88,3 +87,4 @@ Feature: General Karate feature tests
   @ignore @printKarateData
   Scenario: print
     * print data
+
