@@ -1,11 +1,11 @@
 package org.example.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
+import lombok.SneakyThrows;
 
-@Slf4j
 public class JsonConverter {
 
+  @SneakyThrows
   public static String serializePojo(Object pojo) {
     ObjectMapper objectMapper = new ObjectMapper();
 
@@ -13,14 +13,7 @@ public class JsonConverter {
       throw new RuntimeException("Null POJO provided");
     }
 
-    String body = null;
-    try {
-      body = objectMapper.writeValueAsString(pojo);
-    } catch (Exception e) {
-      log.error(e.getMessage());
-    }
-
-    return body;
+    return objectMapper.writeValueAsString(pojo);
   }
 
 }
