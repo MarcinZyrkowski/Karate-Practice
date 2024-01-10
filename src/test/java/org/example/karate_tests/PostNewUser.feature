@@ -42,6 +42,7 @@ Feature: Create new user
     And print response
     And match response == expectedResponse
 
+    @debug
   Scenario: Create new user and using java generated dto
     * def userRequest = userGenerator.generateUserDto()
 
