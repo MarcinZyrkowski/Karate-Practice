@@ -33,6 +33,9 @@ test {
 
 
 tasks.register('karate', JavaExec) {
+    group = 'karate tasks'
+    description = 'allows running karate tests'
+
     mainClass = 'com.intuit.karate.cli.Main'
     classpath = sourceSets.test.runtimeClasspath
 
