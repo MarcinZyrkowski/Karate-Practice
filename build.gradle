@@ -45,9 +45,16 @@ tasks.register('karate', JavaExec) {
         args = ['src/test/java']
     }
 
+    // karate reports will be saved in gradle build
+    args += [
+        '-o', 'build/karate_reports',
+        'src/test/java'
+    ]
+
     systemProperty "karate.env", System.properties.getProperty("karate.env")
 
     // karate task will be executed even when tests fail
     ignoreExitValue = true as JavaExecSpec
+
 
 }
