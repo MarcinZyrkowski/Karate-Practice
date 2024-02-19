@@ -3,14 +3,14 @@ Feature: Create new user
   Background:
     * url baseURL
     * path 'api/users'
-    * def userResponseGenerator = Java.type('org.example.data_provider.UserResponseGenerator')
-    * def userGenerator = Java.type('org.example.data_provider.UserGenerator')
-
     # we can also combine url and path using ``
     # In JavaScript, the double backticks    (``) are used to define a template literal.
     # Template literals are a way to create strings that can span multiple lines and include expressions
     # or variables directly within the string using ${...} syntax.
     # example: `${baseURL}api/users`
+    * def userResponseGenerator = Java.type('org.example.data_provider.UserResponseGenerator')
+    * def userGenerator = Java.type('org.example.data_provider.UserGenerator')
+    * def userResponseMapper = Java.type('org.example.mappers.UserResponseMapper')
 
   Scenario: Create new user
     Given request { "name": "Marcin", "job": "QA" }
@@ -139,3 +139,13 @@ Feature: Create new user
     Then status 201
     And print response
     And match response == {"name": "Marcin", "job": "QA", "id":  "#string", "createdAt":  "#ignore"}
+
+  Scenario: Convert response to java DTO
+    * def person = 'Marcin'
+    Given request { "name": "#(person)", "job": "QA" }
+    When method POST
+    Then status 201
+    And print response
+    And match response == {"name": "Marcin", "job": "QA", "id":  "#string", "createdAt":  "#ignore"}
+    And def responseAsJavaObj = userResponseMapper.mapToUserResponse(response)
+    And print responseAsJavaObj
