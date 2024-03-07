@@ -23,8 +23,4 @@ public class UserGenerator {
         return List.of(new User("Marcin", "QA"), new User("Tomek", "PM"));
     }
 
-    public static void hello() {
-        System.out.println("helloJava");
-    }
-
 }
