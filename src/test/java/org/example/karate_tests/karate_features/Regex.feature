@@ -7,7 +7,7 @@ Feature: Working with regex
 
   Scenario: Create new user with regex assertion
     Given request { "name": "Marcin", "job": "QA with id 323264732" }
-    When method POST
+    When method post
     Then status 201
     And print response
     And match response == {"name": "Marcin", "job": "#regex QA .*", "id":  "#string", "createdAt":  "#ignore"}

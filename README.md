@@ -27,5 +27,3 @@ example:
 In Karate, when you use the `#(...)` syntax within a string, it is treated as a variable reference
 or expression that gets evaluated and replaced at runtime. The result of the expression is then used to
 build the string.
-`#(...)` is used to wrap an expression.
-`${person}` is assumed to be a variable or expression.
