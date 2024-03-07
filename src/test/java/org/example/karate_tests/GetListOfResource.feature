@@ -1,3 +1,4 @@
+@full
 Feature: Get list of resource
 
   Background:

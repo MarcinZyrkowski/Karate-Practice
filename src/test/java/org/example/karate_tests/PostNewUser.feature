@@ -1,3 +1,4 @@
+@full
 Feature: Create new user
 
   Background:

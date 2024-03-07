@@ -1,3 +1,4 @@
+@full
 Feature: General Karate feature tests
 
   Background:

@@ -7,11 +7,8 @@ public class TestRunner {
 
   @Karate.Test
   Karate run() {
-    return Karate.run(
-            "GetListOfUsers.feature",
-            "PostNewUser.feature",
-            "General.feature",
-            "GetListOfResource.feature")
+    return Karate.run()
+        .tags("@full")
         .relativeTo(getClass());
   }
 
