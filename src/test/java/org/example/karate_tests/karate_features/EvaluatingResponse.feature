@@ -1,3 +1,4 @@
+@full
 Feature: Evaluating response
 
  Background:

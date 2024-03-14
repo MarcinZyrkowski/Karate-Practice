@@ -1,3 +1,4 @@
+@full
 Feature: Dynamic variable
 
   Background:
