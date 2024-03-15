@@ -18,7 +18,7 @@ Feature: Tests which are based on java integration
     Then status 201
     And print response
     And match $ == karate.toJson(userResponse)
-    # $ could be used as response
+  # $ could be used as response
 
   Scenario Outline: Create new users based on java template requests
     * def userRequest = userGenerator.generateUserDto(name, job)
@@ -37,21 +37,21 @@ Feature: Tests which are based on java integration
 
   Scenario: Convert karate obj to java DTO
     * def requestBody =
-    """
-    {
-      "name": "Marcin",
-      "job": "QA"
-    }
-    """
+      """
+      {
+        "name": "Marcin",
+        "job": "QA"
+      }
+      """
     * def expectedResponse =
-    """
-    {
-      "name": "Marcin",
-      "job":  "QA",
-      "id": "#string",
-      "createdAt":  "#ignore"
-    }
-    """
+      """
+      {
+        "name": "Marcin",
+        "job":  "QA",
+        "id": "#string",
+        "createdAt":  "#ignore"
+      }
+      """
 
     Given request requestBody
     When method POST

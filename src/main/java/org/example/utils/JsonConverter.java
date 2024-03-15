@@ -1,19 +1,17 @@
 package org.example.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Objects;
 import lombok.SneakyThrows;
 
 public class JsonConverter {
 
-  @SneakyThrows
-  public static String serializePojo(Object pojo) {
-    ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    if (pojo == null) {
-      throw new RuntimeException("Null POJO provided");
+    @SneakyThrows
+    public static String serializePojo(Object pojo) {
+        Objects.requireNonNull(pojo, "Null POJO provided");
+        return OBJECT_MAPPER.writeValueAsString(pojo);
     }
-
-    return objectMapper.writeValueAsString(pojo);
-  }
 
 }

@@ -9,21 +9,21 @@ Feature: Modifying karate JSON
 
   Scenario: Changing value in JSON
     * def json =
-    """
-    {
-      name: "Marcin",
-      job: {
-        title: "DEV"
+      """
+      {
+        name: "Marcin",
+        job: {
+          title: "DEV"
+        }
       }
-    }
-    """
+      """
 
     When print json
     And karate.set('json', 'job.title', 'QA')
     Then print json
     When set json.job.title = 'AQA'
     And print json
-    # 2 ways of modifying json
+  # 2 ways of modifying json
 
 
   Scenario Outline: Removing fields from json

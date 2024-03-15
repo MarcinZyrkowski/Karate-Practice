@@ -8,12 +8,12 @@ Feature: files integration test
 
   Scenario: compare response with prepared expected response as JSON
     * def requestBody =
-    """
-    {
-      "name": "Marcin",
-      "job": "QA"
-    }
-    """
+      """
+      {
+        "name": "Marcin",
+        "job": "QA"
+      }
+      """
 
     Given request requestBody
     When method post

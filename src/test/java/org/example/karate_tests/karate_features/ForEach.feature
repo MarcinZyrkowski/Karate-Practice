@@ -12,13 +12,13 @@ Feature: Iterating through for each
   Scenario: iterating through list, calling Java method, and calling karate @methods
     * def rawPeople = userGenerator.generateList()
     * def fun =
-    """
-    function(user) {
-          karate.log(user);
-          helloJavaUtil.helloJava();
-          karate.call('@helloKarate')
-    }
-    """
+      """
+      function(user) {
+        karate.log(user);
+        helloJavaUtil.helloJava();
+        karate.call('@helloKarate')
+      }
+      """
 
     When karate.forEach(rawPeople, fun)
 
@@ -26,13 +26,13 @@ Feature: Iterating through for each
     * def rawPeople = userGenerator.generateList()
     * def userRequest = ''
     * def fun =
-    """
-    function(user) {
-          karate.set('userRequest', karate.toJson(user))
-          karate.call('@printKarateData')
-          karate.call('@createUser')
-    }
-    """
+      """
+      function(user) {
+        karate.set('userRequest', karate.toJson(user))
+        karate.call('@printKarateData')
+        karate.call('@createUser')
+      }
+      """
 
     When karate.forEach(rawPeople, fun)
 

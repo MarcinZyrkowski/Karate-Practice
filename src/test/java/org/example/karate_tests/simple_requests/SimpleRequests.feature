@@ -13,21 +13,21 @@ Feature: Simple requests
 
   Scenario: Create new user
     * def requestBody =
-    """
-    {
-      "name": "Marcin",
-       "job": "QA"
-    }
-    """
+      """
+      {
+        "name": "Marcin",
+        "job": "QA"
+      }
+      """
     * def expectedResponse =
-    """
-    {
-      "name": "Marcin",
-      "job":  "QA",
-      "id": "#string",
-      "createdAt":  "#ignore"
-    }
-    """
+      """
+      {
+        "name": "Marcin",
+        "job":  "QA",
+        "id": "#string",
+        "createdAt":  "#ignore"
+      }
+      """
     # "id": #string means id should be a string, not specified value but a type
     # "#ignore means we ignore whatever is there
 

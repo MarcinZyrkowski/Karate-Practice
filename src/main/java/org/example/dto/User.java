@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class User {
+
     private String name;
     private String job;
 }

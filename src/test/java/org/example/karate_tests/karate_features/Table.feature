@@ -21,4 +21,4 @@ Feature: Working with table
       | 'Tom'  | 'Java Dev' |
       | 'Mark' | 'PM'       |
     * call read('@print') data
-    # prints row by row
+  # prints row by row

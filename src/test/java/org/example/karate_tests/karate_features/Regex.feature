@@ -11,4 +11,4 @@ Feature: Working with regex
     Then status 201
     And print response
     And match response == {"name": "Marcin", "job": "#regex QA .*", "id":  "#string", "createdAt":  "#ignore"}
-    # to use regex exp we need to put #regex before
+  # to use regex exp we need to put #regex before

@@ -1,9 +1,8 @@
 package org.example.data_provider;
 
+import java.util.List;
 import org.example.dto.User;
 import org.example.utils.JsonConverter;
-
-import java.util.List;
 
 public class UserGenerator {
 
