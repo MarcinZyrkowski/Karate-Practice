@@ -55,6 +55,4 @@ tasks.register('karate', JavaExec) {
 
     // karate task will be executed even when tests fail
     ignoreExitValue = true as JavaExecSpec
-
-
 }
