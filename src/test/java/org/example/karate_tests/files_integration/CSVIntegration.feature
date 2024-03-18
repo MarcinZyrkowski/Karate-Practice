@@ -1,3 +1,4 @@
+@full
 Feature: CSV Integration
   
   Scenario: reading fromcsv file
