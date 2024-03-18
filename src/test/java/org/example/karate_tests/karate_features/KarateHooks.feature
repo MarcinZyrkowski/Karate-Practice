@@ -11,10 +11,8 @@ Feature: Karate hooks
       }
       """
 
-  @debug
   Scenario: test 1
     * print 'dummy test 1'
 
-  @debug
   Scenario: test 2
     * print 'dummy test 2'
