@@ -1,9 +1,9 @@
 @full
 Feature: Evaluating response
-
+  
   Background:
     * url baseURL
-
+  
   Scenario: Verifying if one element is present in response
     Given path '/api/unknown'
     When method GET
@@ -20,7 +20,7 @@ Feature: Evaluating response
       }
       """
     And match response.data contains expectedResponse
-
+  
   Scenario: Verifying if part of response is exactly the same as expected
     Given path '/api/unknown/2'
     When method GET
@@ -34,7 +34,7 @@ Feature: Evaluating response
       }
       """
     And match response.support contains only expectedPartOfResponse
-
+  
   Scenario: Verifying whole response
     Given path '/api/unknown/2'
     When method GET

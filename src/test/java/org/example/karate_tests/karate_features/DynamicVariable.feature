@@ -1,10 +1,10 @@
 @full
 Feature: Dynamic variable
-
+  
   Background:
     * url baseURL
     * path 'api/users'
-
+  
   Scenario: Using dynamic variable
     * def person = 'Marcin'
     Given request { "name": "#(person)", "job": "QA" }
