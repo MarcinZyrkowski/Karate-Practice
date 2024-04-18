@@ -53,6 +53,9 @@ tasks.register('karate', JavaExec) {
 
     systemProperty "karate.env", System.properties.getProperty("karate.env")
 
+    // this allows running tests in parallel mode
+    systemProperty "karate.options", System.properties.getProperty("karate.options")
+
     // karate task will be executed even when tests fail
     ignoreExitValue = true as JavaExecSpec
 }

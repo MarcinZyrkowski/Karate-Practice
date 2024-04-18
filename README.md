@@ -11,7 +11,12 @@ by this command you can run any test which is marked by tag. you can modify it d
 `gradle karate` will run all tests
 
 Also we have option to choose env which we prefer using the following command:
-`karate -Ptags=@debug -Dkarate.env=dev`
+`gradle karate -Ptags=@debug -Dkarate.env=dev`
+
+Another additional option is ability to run tests in parallel. Then we need add additional property:
+`"-Dkarate.options=--threads 10"`
+e.g.
+`gradle karate "-Dkarate.options=--threads 10"`
 
 ## Karate Features
 
