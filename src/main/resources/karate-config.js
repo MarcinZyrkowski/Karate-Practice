@@ -11,6 +11,7 @@ function fn() {
 
   // pretty output of body in requests
   karate.configure('logPrettyRequest', true);
+  karate.configure('logPrettyResponse', true);
 
   return config;
 }
