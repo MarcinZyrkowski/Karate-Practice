@@ -9,5 +9,8 @@ function fn() {
     baseURL: 'https://reqres.in/'
   }
 
+  // pretty output of body in requests
+  karate.configure('logPrettyRequest', true);
+
   return config;
 }
