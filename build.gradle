@@ -48,7 +48,7 @@ tasks.register('karate', JavaExec) {
 
     // karate reports will be saved in gradle build
     args += [
-        '-o', 'build/karate_reports',
+        '-o', 'build/karate_reports_from_karate_task',
         'src/test/java'
     ]
 
