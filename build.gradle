@@ -58,5 +58,5 @@ tasks.register('karate', JavaExec) {
     systemProperty "karate.options", System.properties.getProperty("karate.options")
 
     // karate task will be executed even when tests fail
-    ignoreExitValue = true as JavaExecSpec
+    // ignoreExitValue = true as JavaExecSpec
 }
