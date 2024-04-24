@@ -1,4 +1,4 @@
-name: GitHub Action Test Run - Karate Task
+name: GitHub Action Test Run - Karate Runner
 
 on:
   workflow_dispatch:
@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: karate-reports
-          path: build/karate_reports_from_karate_task/karate-reports
+          path: build/karate-reports
