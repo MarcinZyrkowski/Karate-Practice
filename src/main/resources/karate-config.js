@@ -6,7 +6,7 @@ function fn() {
   }
 
   var config = {
-    baseURL: 'https://reqres.in/' + env
+    baseURL: 'https://reqres.in/'
   }
 
   // pretty output of body in requests and responses
