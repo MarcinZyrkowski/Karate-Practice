@@ -36,7 +36,7 @@ jobs:
       # run tests
       - name: Run tests
         continue-on-error: false
-        run: ./gradlew karate -Dkarate.options="--threads 10" -Dkarate.env=qa=${{ inputs.environment }}
+        run: ./gradlew karate -Dkarate.options="--threads 10" -Dkarate.env=${{ inputs.environment }}
 
       # Upload Karate-Summary Report
       - name: Upload karate reports
