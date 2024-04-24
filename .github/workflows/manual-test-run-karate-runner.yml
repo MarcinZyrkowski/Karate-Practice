@@ -36,7 +36,7 @@ jobs:
       # run tests
       - name: Run tests
         continue-on-error: false
-        run: ./gradlew test --tests "org.example.karate_tests.TestRunner.run"
+        run: ./gradlew test --tests "org.example.karate_tests.TestRunner.run" -Dkarate.env=${{ inputs.environment }}
 
       # Upload Karate-Summary Report
       - name: Upload karate reports
