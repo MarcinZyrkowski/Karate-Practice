@@ -1,4 +1,5 @@
 @full
+@debug
 Feature: Call Once feature
   
   Background:
@@ -6,6 +7,7 @@ Feature: Call Once feature
     * callonce read('classpath:org/example/karate_tests/karate_features/BeforeAll.feature@beforeAll')
   
   # callonce will be called only once
+  # works even if there is a delay for callonce
   
   Scenario: Test nr 1
     * print 'Test 1'
