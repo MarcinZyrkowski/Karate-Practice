@@ -1,5 +1,4 @@
 @full
-@debug
 Feature: Call Once feature
   
   Background:
