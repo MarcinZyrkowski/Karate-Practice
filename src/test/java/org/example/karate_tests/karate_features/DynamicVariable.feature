@@ -4,6 +4,7 @@ Feature: Dynamic variable
   Background:
     * url baseURL
     * path 'api/users'
+    * def dynamicTitle = 'Dynamic Title'
   
   Scenario: Using dynamic variable
     * def person = 'Marcin'
