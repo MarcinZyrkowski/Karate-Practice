@@ -6,5 +6,5 @@ Feature: Dynamic Scenario Title
     
     Examples:
       | title        |
-      | firtst title |
+      | first title  |
       | second title |
