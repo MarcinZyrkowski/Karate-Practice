@@ -1,7 +1,6 @@
 @full
 Feature: Dynamic Scenario Title
   
-  @debug
   Scenario Outline: Set Title Dynamically: <title>
     * print 'something ...'
     
