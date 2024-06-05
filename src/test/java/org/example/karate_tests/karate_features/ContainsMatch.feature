@@ -1,9 +1,9 @@
+@full
 Feature: Karate contains match
   
   Background:
     * url baseURL
-  
-  @debug
+    
   Scenario: Contains match when array is not sorted as in response
     
     * def json =
@@ -56,4 +56,3 @@ Feature: Karate contains match
     When method get
     Then print response
     And match response.data contains only json
-    
