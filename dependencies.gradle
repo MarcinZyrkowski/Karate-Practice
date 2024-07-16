@@ -4,10 +4,12 @@ ext {
     lombokVersion = '1.18.22'
     jacksonVersion = '2.16.0-rc1'
     slf4jVersion = '2.0.9'
+    restassuredVersion = '5.5.0'
+    assertJVersion = '3.26.3'
 }
 
 dependencies {
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    implementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "com.intuit.karate:karate-core:${karateVersion}"
     implementation "com.intuit.karate:karate-junit5:${karateVersion}"
@@ -16,4 +18,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
     implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "io.rest-assured:rest-assured:${restassuredVersion}"
+    implementation "org.assertj:assertj-core:${assertJVersion}"
+
 }
