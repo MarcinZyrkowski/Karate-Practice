@@ -1,6 +1,5 @@
 Feature: Usage of test manager
 
-  @debug
   Scenario: Test manager test
     # Prerequisites
     * def TestManager = Java.type('org.example.tm.TestManager')
