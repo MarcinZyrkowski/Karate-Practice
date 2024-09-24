@@ -1,3 +1,4 @@
+@full
 Feature: Usage of test manager
 
   Background:
