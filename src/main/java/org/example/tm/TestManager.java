@@ -5,5 +5,6 @@ public class TestManager {
     return new TestManager();
   }
 
+  // utils
   public final StringUtil stringUtil = new StringUtil();
 }

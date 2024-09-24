@@ -1,11 +1,9 @@
 Feature: Usage of test manager
 
-  Scenario: Test manager test
-    # Prerequisites
-    * def TestManager = Java.type('org.example.tm.TestManager')
-    * def tm = TestManager.getInstance()
+  Background:
+    * def tm = Java.type('org.example.tm.TestManager').getInstance()
 
-    # Usage
-    * def stringToBeReversed = "tseb eht si avaJ"
-    * def reversed = tm.stringUtil.reverse(stringToBeReversed)
-    * print reversed
+  Scenario: Test manager test
+    Given def stringToBeReversed = "tseb eht si avaJ"
+    When def reversed = tm.stringUtil.reverse(stringToBeReversed)
+    Then print reversed
