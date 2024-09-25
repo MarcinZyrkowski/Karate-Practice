@@ -40,7 +40,7 @@ public class AdvancedTestManager {
     karateObject.engine.print(varId);
   }
 
-  private void setVariable(String key, Object value) {
+  public void setVariable(String key, Object value) {
     karateObject.engine.setVariable(key, value);
   }
 

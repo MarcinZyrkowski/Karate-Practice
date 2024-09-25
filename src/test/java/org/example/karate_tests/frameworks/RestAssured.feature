@@ -9,7 +9,6 @@ Feature: Rest Assured
     * print singleUser
     * print karate.toJson(singleUser)
 
-  @debug
   Scenario: Rest Assured integration - post
     * def UserGenerator = Java.type('org.example.data_provider.UserGenerator')
     * def user = UserGenerator.generateUserDto()
