@@ -27,11 +27,12 @@ public class AdvancedTestManager {
   }
 
   private void printString(String string) {
-    karateObject.engine.print("`"+string+"`");
+    karateObject.engine.print("`" + string + "`");
   }
 
   public void printJson(Object obj) {
     String serialized = JsonConverter.serializePojo(obj);
+
     Object json = JsonUtils.toJson(obj, true);
     String varId = buildUniqueVariableName();
 
