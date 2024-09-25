@@ -37,7 +37,7 @@ tasks.register('karate', JavaExec) {
     group = 'karate tasks'
     description = 'allows running karate tests'
 
-    mainClass = 'com.intuit.karate.cli.Main'
+    mainClass = 'com.intuit.karate.Main'
     classpath = sourceSets.test.runtimeClasspath
 
     if (project.hasProperty('tags')) {
@@ -48,8 +48,9 @@ tasks.register('karate', JavaExec) {
 
     // karate reports will be saved in gradle build
     args += [
-        '-o', 'build/karate_reports_from_karate_task',
-        'src/test/java'
+            '--output', 'build/karate_reports_from_karate_task',
+            '--hook', 'org.example.RuntimeHook.CustomRuntimeHook',
+            'src/test/java'
     ]
 
     systemProperty "karate.env", System.properties.getProperty("karate.env")
