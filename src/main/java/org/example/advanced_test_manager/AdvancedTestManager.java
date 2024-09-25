@@ -1,6 +1,5 @@
 package org.example.advanced_test_manager;
 
-import com.intuit.karate.JsonUtils;
 import com.intuit.karate.core.ScenarioRuntime;
 import java.time.Instant;
 import java.util.UUID;
@@ -28,16 +27,6 @@ public class AdvancedTestManager {
 
   private void printString(String string) {
     karateObject.engine.print("`" + string + "`");
-  }
-
-  public void printJson(Object obj) {
-    String serialized = JsonConverter.serializePojo(obj);
-
-    Object json = JsonUtils.toJson(obj, true);
-    String varId = buildUniqueVariableName();
-
-    setVariable(varId, json);
-    karateObject.engine.print(varId);
   }
 
   public void setVariable(String key, Object value) {
