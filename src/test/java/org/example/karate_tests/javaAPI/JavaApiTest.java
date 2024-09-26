@@ -8,21 +8,21 @@ import org.junit.jupiter.api.Test;
 
 public class JavaApiTest {
 
-    private static final String url = "https://jsonplaceholder.typicode.com/users";
+  private static final String url = "https://jsonplaceholder.typicode.com/users";
 
-    @Test
-    public void javaApiIntegration() {
+  @Test
+  public void javaApiIntegration() {
 
-        List users = Http.to(url)
-            .get()
-            .json()
-            .asList();
+    List users = Http.to(url)
+        .get()
+        .json()
+        .asList();
 
-        Match.that(users.get(0)).contains("{ name: 'Leanne Graham' }");
+    Match.that(users.get(0)).contains("{ name: 'Leanne Graham' }");
 
-        String city = Json.of(users).get("$[0].address.city");
+    String city = Json.of(users).get("$[0].address.city");
 
-        Match.that("Gwenborough").isEqualTo(city);
-    }
+    Match.that("Gwenborough").isEqualTo(city);
+  }
 
 }

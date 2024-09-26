@@ -1,11 +1,11 @@
 @full
 Feature: Karate contains match
-  
+
   Background:
     * url baseURL
-    
+
   Scenario: Contains match when array is not sorted as in response
-    
+
     * def json =
       """
       [{
@@ -51,7 +51,7 @@ Feature: Karate contains match
           "pantone_value": "17-1456"
         }]
       """
-    
+
     Given path '/api/unknown'
     When method get
     Then print response

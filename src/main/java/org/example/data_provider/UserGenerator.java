@@ -6,20 +6,20 @@ import org.example.utils.JsonConverter;
 
 public class UserGenerator {
 
-    public static User generateUserDto() {
-        return new User("Marcin", "QA");
-    }
+  public static User generateUserDto() {
+    return new User("Marcin", "QA");
+  }
 
-    public static User generateUserDto(String name, String job) {
-        return new User(name, job);
-    }
+  public static User generateUserDto(String name, String job) {
+    return new User(name, job);
+  }
 
-    public static String generateUserDtoAsJson() {
-        return JsonConverter.serializePojo(new User("Marcin", "QA"));
-    }
+  public static String generateUserDtoAsJson() {
+    return JsonConverter.serializePojo(new User("Marcin", "QA"));
+  }
 
-    public static List<User> generateList() {
-        return List.of(new User("Marcin", "QA"), new User("Tomek", "PM"));
-    }
+  public static List<User> generateList() {
+    return List.of(new User("Marcin", "QA"), new User("Tomek", "PM"));
+  }
 
 }

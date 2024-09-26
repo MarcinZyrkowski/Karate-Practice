@@ -1,5 +1,7 @@
 package org.example.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,15 +11,16 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
+@JsonInclude(Include.NON_NULL)
 public class User {
 
-    private String name;
-    private String job;
-    private String id;
-    private String createdAt;
+  private String name;
+  private String job;
+  private String id;
+  private String createdAt;
 
-    public User(String name, String job) {
-        this.name = name;
-        this.job = job;
-    }
+  public User(String name, String job) {
+    this.name = name;
+    this.job = job;
+  }
 }

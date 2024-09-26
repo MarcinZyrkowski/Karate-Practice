@@ -6,20 +6,20 @@ import org.junit.jupiter.api.Test;
 
 public class TestRunner {
 
-    @Karate.Test
-    Karate run() {
-        return Karate.run()
-            .tags("@full")
-            .relativeTo(getClass());
-    }
+  @Karate.Test
+  Karate run() {
+    return Karate.run()
+        .tags("@full")
+        .relativeTo(getClass());
+  }
 
-    // this allows running tests in parallel mode
-    @Test
-    void runParallel() {
-        Karate.run()
-            .tags("@full")
-            .relativeTo(getClass())
-            .parallel(30);
-    }
+  // this allows running tests in parallel mode
+  @Test
+  void runParallel() {
+    Karate.run()
+        .tags("@full")
+        .relativeTo(getClass())
+        .parallel(30);
+  }
 
 }

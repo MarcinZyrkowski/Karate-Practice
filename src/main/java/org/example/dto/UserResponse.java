@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserResponse {
 
-    private String name;
-    private String job;
-    @Builder.Default
-    private String id = "#string";
-    @Builder.Default
-    private String createdAt = "#ignore";
+  private String name;
+  private String job;
+  @Builder.Default
+  private String id = "#string";
+  @Builder.Default
+  private String createdAt = "#ignore";
 }
