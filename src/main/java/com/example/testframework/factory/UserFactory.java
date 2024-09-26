@@ -11,4 +11,8 @@ public class UserFactory {
     return userGenerator.generateSpecificUser();
   }
 
+  public User randomUser() {
+    return userGenerator.generateRandomUser();
+  }
+
 }

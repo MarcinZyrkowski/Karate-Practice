@@ -9,6 +9,6 @@ Feature: Create User
     * print tm.reqResController.createUser(user)
 
   Scenario: Create User with valid data
-    * def requestBody = tm.userFactory.specificUser()
+    * def requestBody = tm.userFactory.randomUser()
     * call read('../utils/Hooks.feature@createUser')
 

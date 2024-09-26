@@ -9,12 +9,29 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'dependencies.gradle'
+ext {
+    junitVersion = '5.8.0'
+    karateVersion = '1.4.1'
+    lombokVersion = '1.18.30'
+    jacksonVersion = '2.16.0-rc1'
+    slf4jVersion = '2.0.9'
+    restassuredVersion = '5.5.0'
+    assertJVersion = '3.26.3'
+}
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
+dependencies {
+    implementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation "com.intuit.karate:karate-core:${karateVersion}"
+    implementation "com.intuit.karate:karate-junit5:${karateVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "io.rest-assured:rest-assured:${restassuredVersion}"
+    implementation "org.assertj:assertj-core:${assertJVersion}"
+    implementation 'org.apache.commons:commons-lang3:3.17.0'
 }
 
 // to run tests in TestRunner sourceSets have to be set
