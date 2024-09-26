@@ -7,4 +7,3 @@ Feature: Usage of advanced test manager
 
     * advancedTestManager.print(rawPeople)
     * advancedTestManager.print("ala ma kota")
-    * advancedTestManager.printJson(rawPeople)

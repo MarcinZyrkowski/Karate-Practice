@@ -1,4 +1,4 @@
-package org.example.dto;
+package com.example.testframework.model.dto.service;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
@@ -17,4 +18,6 @@ public class User {
 
   private String name;
   private String job;
+  private String id;
+  private String createdAt;
 }

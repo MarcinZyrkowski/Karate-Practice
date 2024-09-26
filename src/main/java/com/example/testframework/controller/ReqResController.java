@@ -1,20 +1,20 @@
-package org.example.controller;
+package com.example.testframework.controller;
 
+import com.example.testframework.client.service.ReqResClient;
+import com.example.testframework.model.dto.service.ReqResUserResponse;
+import com.example.testframework.model.dto.service.User;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.assertj.core.api.Assertions;
-import org.example.client.ReqResClient;
-import org.example.dto.User;
-import org.example.dto.UserResponse;
-import org.example.dto.reqres.ReqResUserResponse;
+
 
 public class ReqResController {
 
-  private static final ReqResClient REQ_RES_CLIENT = new ReqResClient();
+  private final ReqResClient reqresClient = new ReqResClient();
 
   @SuppressWarnings("unused")
-  public static ReqResUserResponse getSingleUser(int id) {
-    Response response = REQ_RES_CLIENT.getSingleUser(id);
+  public ReqResUserResponse getSingleUser(int id) {
+    Response response = reqresClient.getSingleUser(id);
 
     Assertions.assertThat(response.statusCode())
         .withFailMessage("Expected status code: 200 but was: " + response.statusCode())
@@ -23,12 +23,12 @@ public class ReqResController {
   }
 
   @SuppressWarnings("unused")
-  public static UserResponse createUser(User user) {
-    Response response = REQ_RES_CLIENT.createUser(user);
+  public User createUser(User user) {
+    Response response = reqresClient.createUser(user);
     Assertions.assertThat(response.statusCode())
         .withFailMessage("Expected status code: 201 but was: " + response.statusCode())
         .isEqualTo(HttpStatus.SC_CREATED);
-    return response.as(UserResponse.class);
+    return response.as(User.class);
   }
 
 }
