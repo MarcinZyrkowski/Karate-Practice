@@ -14,7 +14,7 @@ public class UserResponse {
   private String name;
   private String job;
   @Builder.Default
-  private String id = "#string";
+  private final String id = "#string";
   @Builder.Default
-  private String createdAt = "#ignore";
+  private final String createdAt = "#ignore";
 }

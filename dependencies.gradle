@@ -1,11 +1,12 @@
 ext {
     junitVersion = '5.8.0'
     karateVersion = '1.4.1'
-    lombokVersion = '1.18.22'
+    lombokVersion = '1.18.30'
     jacksonVersion = '2.16.0-rc1'
     slf4jVersion = '2.0.9'
     restassuredVersion = '5.5.0'
     assertJVersion = '3.26.3'
+    fakerVersion = '1.0.2'
 }
 
 dependencies {
@@ -20,5 +21,6 @@ dependencies {
     implementation "org.slf4j:slf4j-api:${slf4jVersion}"
     implementation "io.rest-assured:rest-assured:${restassuredVersion}"
     implementation "org.assertj:assertj-core:${assertJVersion}"
+    implementation "com.github.javafaker:javafaker:${fakerVersion}"
 
 }
