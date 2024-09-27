@@ -63,13 +63,13 @@ tasks.register('karate', JavaExec) {
         args = ['src/test/java']
     }
 
-    // karate reports will be saved in gradle build
     args += [
             '--output', 'build/karate_reports_from_karate_task',
             '--hook', 'org.example.RuntimeHook.CustomRuntimeHook',
             'src/test/java'
     ]
 
+    // allows switching between environments
     systemProperty "karate.env", System.properties.getProperty("karate.env")
 
     // this allows running tests in parallel mode
