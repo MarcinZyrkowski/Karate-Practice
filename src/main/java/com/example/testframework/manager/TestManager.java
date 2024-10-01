@@ -1,6 +1,8 @@
 package com.example.testframework.manager;
 
+import com.example.testframework.assertion.SingleUserResponseAssertion;
 import com.example.testframework.controller.ReqResController;
+import com.example.testframework.factory.SingleUserResponseFactory;
 import com.example.testframework.factory.UserFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -16,5 +18,7 @@ public class TestManager {
 
   private final ReqResController reqResController = new ReqResController();
   private final UserFactory userFactory = new UserFactory();
+  private final SingleUserResponseAssertion singleUserResponseAssertion = new SingleUserResponseAssertion();
+  private final SingleUserResponseFactory singleUserResponseFactory = new SingleUserResponseFactory();
 
 }

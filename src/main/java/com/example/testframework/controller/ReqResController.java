@@ -1,7 +1,7 @@
 package com.example.testframework.controller;
 
 import com.example.testframework.client.service.ReqResClient;
-import com.example.testframework.model.dto.service.ReqResUserResponse;
+import com.example.testframework.model.dto.service.SingleUserResponse;
 import com.example.testframework.model.dto.service.User;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -13,13 +13,13 @@ public class ReqResController {
   private final ReqResClient reqresClient = new ReqResClient();
 
   @SuppressWarnings("unused")
-  public ReqResUserResponse getSingleUser(int id) {
+  public SingleUserResponse getSingleUser(int id) {
     Response response = reqresClient.getSingleUser(id);
 
     Assertions.assertThat(response.statusCode())
         .withFailMessage("Expected status code: 200 but was: " + response.statusCode())
         .isEqualTo(HttpStatus.SC_OK);
-    return response.as(ReqResUserResponse.class);
+    return response.as(SingleUserResponse.class);
   }
 
   @SuppressWarnings("unused")

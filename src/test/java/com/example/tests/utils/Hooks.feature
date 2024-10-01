@@ -1,12 +1,19 @@
 Feature: Hooks
 
   Background:
-    * configure url = "https://reqres.in/"
-    * def JsonConverter = Java.type('com.example.testframework.utils.JsonConverter')
+    * configure url = baseURL
+    * def JsonMapper = Java.type('com.example.testframework.mapper.JsonMapper')
 
+  @ignore
+  @config
+  Scenario: config
+    * configure url = baseURL
+    * def tm = Java.type('com.example.testframework.manager.TestManager').getInstance()
+
+  @ignore
   @createUser
   Scenario: create user
     Given path "/api/users"
-    When request JSON.parse(JsonConverter.serializePojo(requestBody))
+    When request JSON.parse(JsonMapper.mapToJson(requestBody))
     And method post
     Then status 201
