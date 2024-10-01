@@ -1,5 +1,6 @@
 package com.example.testframework.assertion;
 
+import com.example.testframework.mapper.JsonMapper;
 import com.example.testframework.mapper.KarateMapper;
 import com.example.testframework.model.dto.service.SingleUserResponse;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -22,6 +23,9 @@ public class SingleUserResponseAssertion {
     SingleUserResponse response = KarateMapper.mapToSingleUserResponse(karateResponse);
 
     Assertions.assertThat(response)
+        .withFailMessage(
+            "ACTUAL: \n" + JsonMapper.mapToJson(response) + "\nEXPECTED:\n" +
+                JsonMapper.mapToJson(expectedResponse))
         .isEqualTo(expectedResponse);
   }
 

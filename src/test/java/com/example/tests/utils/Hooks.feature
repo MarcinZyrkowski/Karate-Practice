@@ -9,6 +9,7 @@ Feature: Hooks
   Scenario: config
     * configure url = baseURL
     * def tm = Java.type('com.example.testframework.manager.TestManager').getInstance()
+    * def JsonMapper = Java.type('com.example.testframework.mapper.JsonMapper')
 
   @ignore
   @createUser
