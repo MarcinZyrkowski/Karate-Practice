@@ -11,18 +11,18 @@ public record SingleUserResponse(
 
   @Builder
   public record Data(
-      @JsonProperty("id") Long id,
-      @JsonProperty("email") String email,
+      Long id,
+      String email,
       @JsonProperty("first_name") String firstName,
       @JsonProperty("last_name") String lastName,
-      @JsonProperty("avatar") String avatar) {
+      String avatar) {
 
   }
 
   @Builder
   public record Support(
-      @JsonProperty("url") String url,
-      @JsonProperty("text") String text
+      String url,
+      String text
   ) {
 
   }
